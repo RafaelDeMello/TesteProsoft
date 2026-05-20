@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { setAuthenticated } from '@/lib/auth'
 import { applyInputRule } from '@/lib/inputSecurity'
 
 const LOGIN_RULES = {
@@ -29,6 +30,11 @@ export function Login() {
       ...previous,
       [name]: applyInputRule(value, rule),
     }))
+  }
+
+  function handleLogin() {
+    setAuthenticated(true)
+    navigate('/menu', { replace: true })
   }
 
   return (
@@ -81,7 +87,7 @@ export function Login() {
 
             <Button
               type="button"
-              onClick={() => navigate('/menu')}
+              onClick={handleLogin}
               className="mt-2 h-10 w-full border-0 bg-gradient-to-r from-[#6f4f99] to-[#8e72b3] text-[13px] font-semibold uppercase tracking-[0.17em] text-[#f7f2fb] transition-all hover:brightness-105"
             >
               Entrar

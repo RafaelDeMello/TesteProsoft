@@ -1,8 +1,15 @@
 import { Settings } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
+import { setAuthenticated } from '@/lib/auth'
+
 export function Topbar({ showLogout = false }) {
   const navigate = useNavigate()
+
+  function handleLogout() {
+    setAuthenticated(false)
+    navigate('/', { replace: true })
+  }
 
   return (
     <header className="border-b border-[#3b3247] bg-[#221b2a] shadow-[0_1px_0_0_rgba(255,255,255,0.03)]">
@@ -23,7 +30,7 @@ export function Topbar({ showLogout = false }) {
           {showLogout ? (
             <button
               type="button"
-              onClick={() => navigate('/')}
+              onClick={handleLogout}
               className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#b9a5d4] transition-colors hover:text-[#eee7f8]"
             >
               sair
