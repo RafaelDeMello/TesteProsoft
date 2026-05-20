@@ -5,7 +5,7 @@ Frontend do sistema ProSoft desenvolvido com React + Vite, usando Tailwind CSS v
 O projeto implementa um fluxo inicial de ERP com:
 - Login
 - Menu principal
-- Cadastro de cliente com preenchimento automatico por CEP
+- Cadastro de cliente
 
 ## Stack
 
